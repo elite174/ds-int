@@ -28,6 +28,8 @@
   user-select: none;
 
   .btn-text {
+    @extend %typo_semibold;
+
     color: inherit;
     transition: color var(--transition);
   }
@@ -93,7 +95,24 @@
       &:focus,
       &.focus {
         background-color: var(--color-primary-dark-purple);
-        outline-color: var(--color-table-level-1);
+      }
+
+      // Outline color is different for sizes
+      // But why??
+      &.btn_size {
+        &_s {
+          &:focus,
+          &.focus {
+            outline-color: var(--color-table-level-2);
+          }
+        }
+
+        &_l {
+          &:focus,
+          &.focus {
+            outline-color: var(--color-table-level-1);
+          }
+        }
       }
 
       &:active,
@@ -110,27 +129,49 @@
     &_secondary {
       border: 1px solid var(--color-primary-purple);
       color: var(--color-primary-purple);
+      transition: border-color var(--transition);
+
+      &:hover,
+      &.hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active,
+      &.loading {
+        color: var(--color-primary-dark-purple);
+        border-color: var(--color-primary-dark-purple);
+      }
 
       &:hover,
       &.hover {
         background-color: var(--color-background-purple);
-        color: var(--color-primary-dark-purple);
       }
 
       &:focus,
       &.focus {
-        background-color: var(--color-secondary-background);
+        background-color: var(--color-secondary-white);
         outline-color: var(--color-primary-light-purple);
       }
 
       &:active,
       &.active {
         background-color: var(--color-table-level-4);
-        color: var(--color-primary-dark-purple);
       }
 
-      &.loading {
-        background-color: var(--color-secondary-white);
+      // Why this color differs?
+      // Maybe it's a bug?
+      &.btn_size {
+        &_s {
+          &.loading {
+            background-color: var(--color-secondary-white);
+          }
+        }
+
+        &_l {
+          &.loading {
+            background-color: var(--color-table-level-4);
+          }
+        }
       }
     }
 
@@ -157,6 +198,7 @@
         color: var(--color-primary-pressed-purple);
       }
 
+      // Why is it different??
       &.btn_size_s {
         &:focus,
         &.focus,
@@ -184,7 +226,7 @@
         padding: pxToRem(6) pxToRem(16);
 
         .btn-text {
-          @extend %typo_semibold, %typo_size_s;
+          @extend %typo_size_s;
         }
 
         .btn-icon,
@@ -195,10 +237,10 @@
       }
 
       &_l {
-        padding: pxToRem(9) pxToRem(16);
+        padding: pxToRem(8) pxToRem(16);
 
         .btn-text {
-          @extend %typo_semibold, %typo_size_l;
+          @extend %typo_size_l;
         }
 
         .btn-icon,
@@ -222,15 +264,7 @@
     }
 
     &_flat {
-      &.btn_size {
-        &_s {
-          padding: 0;
-        }
-
-        &_l {
-          padding: pxToRem(2);
-        }
-      }
+      padding: 0;
     }
   }
 }
