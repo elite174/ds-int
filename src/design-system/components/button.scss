@@ -24,6 +24,8 @@
   justify-content: center;
   gap: pxToRem(8);
 
+  @extend %typo_semibold;
+
   border-radius: var(--border-radius-100);
   box-sizing: border-box;
   cursor: pointer;
@@ -33,9 +35,6 @@
   user-select: none;
 
   .btn-text {
-    @extend %typo_semibold;
-
-    color: inherit;
     transition: color var(--transition);
   }
 
@@ -230,11 +229,9 @@
 
     &_size {
       &_s {
-        padding: pxToRem(6) pxToRem(16);
+        @extend %typo_size_s;
 
-        .btn-text {
-          @extend %typo_size_s;
-        }
+        padding: pxToRem(6) pxToRem(16);
 
         .btn-icon,
         .btn-loader {
@@ -244,11 +241,9 @@
       }
 
       &_l {
-        padding: pxToRem(8) pxToRem(16);
+        @extend %typo_size_l;
 
-        .btn-text {
-          @extend %typo_size_l;
-        }
+        padding: pxToRem(8) pxToRem(16);
 
         .btn-icon,
         .btn-loader {

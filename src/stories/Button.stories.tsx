@@ -2,6 +2,8 @@ import type { Meta } from "@storybook/html";
 
 import { Icon, IconName } from "../components/Icon";
 
+import docsPage from "./Button.docs.mdx";
+
 import styles from "./Button.stories.module.scss";
 
 type UIItem = {
@@ -109,9 +111,10 @@ export const Showcase = () => (
 );
 
 export default {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/html/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
   title: "Button",
+  parameters: {
+    docs: {
+      page: docsPage,
+    },
+  },
 } as Meta<{}>;

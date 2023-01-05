@@ -33,6 +33,7 @@
   --typography-s: #{pxToRem(14)};
   --typography-s-lh: #{pxToRem(20)};
   --typography-l: #{pxToRem(16)};
-  --typography-l-lh: #{pxToRem(22)};
+  // To look good line-height should be the same as the icon size
+  --typography-l-lh: #{pxToRem(24)};
   --typography-semibold: 600;
 }

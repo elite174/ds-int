@@ -1,0 +1,157 @@
+<!-- Custom-MDX-Documentation.mdx -->
+
+# Button docs
+
+## Look ma - **NO JS**!
+
+<section style={{width: 600}}>
+I'm a big fan of simple things. If you don't need something don't use it.
+
+That's why in this case I decided to implement button component only with **CSS**.
+
+In this example implementation you can make your button with any tag you want. Moreover this implementation 
+can be used for any library/framework. No extra runtime.
+
+I also followed BEM approach. I chose it only for simplicity and readability, however I'd prefer semantic
+approach (like in **SemanticUI** and other CSS frameworks), because BEM classes are huge.
+</section>
+
+
+## Button
+
+### Required params
+
+Button has four possible kinds:
+
+- primary `btn_primary`
+- secondary `btn_secondary`
+- flat `btn_flat`
+- destructive `btn_destructive`
+
+Button also has the following sizes:
+
+- L `btn_size_l`
+- S `btn_size_s`
+
+### Optional params
+
+Button can have icons (from left - **prefix** (`btn_with_prefix`) and from right - **postfix** (`btn_with_postfix`)).
+
+If the button should have loading state don't forget to add .loading class (`loading`) and `btn-loader` component inside.  
+
+### Button elements
+
+Button has the following elements which can be used inside:
+
+- button text (`btn-text`) (This thing can be renamed to btn-content, it depends on the component requiremenets)
+- button icon (`btn-icon`)
+- button loader (`btn-loader`)
+
+If you render just text you don't need to worry about these elements. However if you need to render an icon inside your button
+or a loader, then button text comes in handy. I'll show the examples below.
+
+### Caveats
+
+I didn't support icons from both sides (maybe it's not needed).
+
+## How to make buttons
+
+<section style={{width: 600}}>
+
+The button should always have the size and the kind. You need to start with classes `int btn`
+
+`int` - is the scope of intelas design system
+
+`btn` - is the name of the button component
+
+</section>
+
+Below I'll consider only large size primary buttons.
+
+### Primary large button
+
+`<button class="int btn btn_primary btn_size_l">Hi!</button>`
+
+You see - very easy!
+
+<button class="int btn btn_primary btn_size_l">Hi!</button>
+
+### Primary large button with icon
+
+You can use Icon component for this. Look order of *span* and *Icon* doesn't matter: you can write as you wish!
+
+#### Icon from left
+
+```
+<button class="int btn btn_primary btn_size_l btn_with_prefix">
+    <span class="btn-text">Some text</span>
+    <Icon class="btn-icon" name="info"/>
+</button>
+```
+
+<button class="int btn btn_primary btn_size_l btn_with_prefix">
+    <span class="btn-text">Some text</span>
+    <svg class="btn-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.24995 6.99999C9.24995 6.58599 9.58595 6.24999 9.99996 6.24999C10.414 6.24999 10.75 6.58599 10.75 6.99999C10.75 7.41399 10.414 7.74999 9.99996 7.74999C9.58595 7.74999 9.24995 7.41399 9.24995 6.99999ZM9.24996 9.24999C9.24996 8.83599 9.58596 8.49999 9.99996 8.49999C10.414 8.49999 10.75 8.83599 10.75 9.24999V13C10.75 13.414 10.414 13.75 9.99996 13.75C9.58596 13.75 9.24996 13.414 9.24996 13V9.24999ZM9.99997 16C6.69172 16 3.99997 13.3083 3.99997 10C3.99997 6.69175 6.69172 3.99999 9.99997 3.99999C13.3082 3.99999 16 6.69175 16 10C16 13.3083 13.3082 16 9.99997 16ZM10 2.5C5.85775 2.5 2.5 5.85775 2.5 10C2.5 14.1423 5.85775 17.5 10 17.5C14.1415 17.5 17.5 14.1423 17.5 10C17.5 5.85775 14.1415 2.5 10 2.5Z"/>
+    </svg>
+</button>
+
+#### Icon from right
+
+```
+<button class="int btn btn_primary btn_size_l btn_with_postfix">
+    <span class="btn-text">Some text</span>
+    <Icon class="btn-icon" name="info"/>
+</button>
+```
+
+<button class="int btn btn_primary btn_size_l btn_with_postfix">
+    <span class="btn-text">Some text</span>
+    <svg class="btn-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.24995 6.99999C9.24995 6.58599 9.58595 6.24999 9.99996 6.24999C10.414 6.24999 10.75 6.58599 10.75 6.99999C10.75 7.41399 10.414 7.74999 9.99996 7.74999C9.58595 7.74999 9.24995 7.41399 9.24995 6.99999ZM9.24996 9.24999C9.24996 8.83599 9.58596 8.49999 9.99996 8.49999C10.414 8.49999 10.75 8.83599 10.75 9.24999V13C10.75 13.414 10.414 13.75 9.99996 13.75C9.58596 13.75 9.24996 13.414 9.24996 13V9.24999ZM9.99997 16C6.69172 16 3.99997 13.3083 3.99997 10C3.99997 6.69175 6.69172 3.99999 9.99997 3.99999C13.3082 3.99999 16 6.69175 16 10C16 13.3083 13.3082 16 9.99997 16ZM10 2.5C5.85775 2.5 2.5 5.85775 2.5 10C2.5 14.1423 5.85775 17.5 10 17.5C14.1415 17.5 17.5 14.1423 17.5 10C17.5 5.85775 14.1415 2.5 10 2.5Z"/>
+    </svg>
+</button>
+
+### Icon with loader
+
+Loader - is the icon in this case :)
+
+`btn-loader` element should be **before** `btn-text`.
+
+#### With text only
+
+Button in `loading` state will preserve initial width (which depends on text content).
+
+```
+<button class="int btn btn_primary btn_size_l loading">
+    <Icon class="btn-loader" name="info"/>
+    <span class="btn-text">Some really long text</span>
+</button>
+```
+
+<button class="int btn btn_primary btn_size_l loading">
+    <svg class="btn-loader" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.24995 6.99999C9.24995 6.58599 9.58595 6.24999 9.99996 6.24999C10.414 6.24999 10.75 6.58599 10.75 6.99999C10.75 7.41399 10.414 7.74999 9.99996 7.74999C9.58595 7.74999 9.24995 7.41399 9.24995 6.99999ZM9.24996 9.24999C9.24996 8.83599 9.58596 8.49999 9.99996 8.49999C10.414 8.49999 10.75 8.83599 10.75 9.24999V13C10.75 13.414 10.414 13.75 9.99996 13.75C9.58596 13.75 9.24996 13.414 9.24996 13V9.24999ZM9.99997 16C6.69172 16 3.99997 13.3083 3.99997 10C3.99997 6.69175 6.69172 3.99999 9.99997 3.99999C13.3082 3.99999 16 6.69175 16 10C16 13.3083 13.3082 16 9.99997 16ZM10 2.5C5.85775 2.5 2.5 5.85775 2.5 10C2.5 14.1423 5.85775 17.5 10 17.5C14.1415 17.5 17.5 14.1423 17.5 10C17.5 5.85775 14.1415 2.5 10 2.5Z"/>
+    </svg>
+    <span class="btn-text">Some really long text</span>
+</button>
+
+#### With prefix loader
+
+```
+<button class="int btn btn_primary btn_size_l btn_with_prefix loading">
+    <Icon class="btn-loader" name="info"/>
+    <Icon class="btn-icon" name="info"/>
+    <span class="btn-text">Some text</span>
+</button>
+```
+
+<button class="int btn btn_primary btn_size_l btn_with_prefix loading">
+    <svg class="btn-loader" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.24995 6.99999C9.24995 6.58599 9.58595 6.24999 9.99996 6.24999C10.414 6.24999 10.75 6.58599 10.75 6.99999C10.75 7.41399 10.414 7.74999 9.99996 7.74999C9.58595 7.74999 9.24995 7.41399 9.24995 6.99999ZM9.24996 9.24999C9.24996 8.83599 9.58596 8.49999 9.99996 8.49999C10.414 8.49999 10.75 8.83599 10.75 9.24999V13C10.75 13.414 10.414 13.75 9.99996 13.75C9.58596 13.75 9.24996 13.414 9.24996 13V9.24999ZM9.99997 16C6.69172 16 3.99997 13.3083 3.99997 10C3.99997 6.69175 6.69172 3.99999 9.99997 3.99999C13.3082 3.99999 16 6.69175 16 10C16 13.3083 13.3082 16 9.99997 16ZM10 2.5C5.85775 2.5 2.5 5.85775 2.5 10C2.5 14.1423 5.85775 17.5 10 17.5C14.1415 17.5 17.5 14.1423 17.5 10C17.5 5.85775 14.1415 2.5 10 2.5Z"/>
+    </svg>
+    <svg class="btn-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.24995 6.99999C9.24995 6.58599 9.58595 6.24999 9.99996 6.24999C10.414 6.24999 10.75 6.58599 10.75 6.99999C10.75 7.41399 10.414 7.74999 9.99996 7.74999C9.58595 7.74999 9.24995 7.41399 9.24995 6.99999ZM9.24996 9.24999C9.24996 8.83599 9.58596 8.49999 9.99996 8.49999C10.414 8.49999 10.75 8.83599 10.75 9.24999V13C10.75 13.414 10.414 13.75 9.99996 13.75C9.58596 13.75 9.24996 13.414 9.24996 13V9.24999ZM9.99997 16C6.69172 16 3.99997 13.3083 3.99997 10C3.99997 6.69175 6.69172 3.99999 9.99997 3.99999C13.3082 3.99999 16 6.69175 16 10C16 13.3083 13.3082 16 9.99997 16ZM10 2.5C5.85775 2.5 2.5 5.85775 2.5 10C2.5 14.1423 5.85775 17.5 10 17.5C14.1415 17.5 17.5 14.1423 17.5 10C17.5 5.85775 14.1415 2.5 10 2.5Z"/>
+    </svg>
+    <span class="btn-text">Some text</span>
+</button>
