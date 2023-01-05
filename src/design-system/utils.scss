@@ -1,0 +1,9 @@
+@use "sass:math";
+
+// For some things it's better to use rem instead of px
+// More info about this
+// https://joshcollinsworth.com/blog/never-use-px-for-font-size
+// https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/
+@function pxToRem($px) {
+  @return math.div($px, 16) * 1rem;
+}

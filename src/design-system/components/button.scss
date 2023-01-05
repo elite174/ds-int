@@ -1,0 +1,236 @@
+@use "../utils.scss" as *;
+@use './typography.scss';
+
+// This animation can be reused in the future
+// By now I decided to keep it here
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: pxToRem(8);
+
+  border-radius: var(--border-radius-100);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: color var(--transition), background-color var(--transition),
+    outline var(--transition);
+  outline: 2px solid transparent;
+  user-select: none;
+
+  .btn-text {
+    color: inherit;
+    transition: color var(--transition);
+  }
+
+  &_with_prefix {
+    .btn-icon,
+    .btn-loader {
+      order: -1;
+    }
+  }
+
+  &_with_postfix {
+    .btn-icon,
+    .btn-loader {
+      order: 1;
+    }
+  }
+
+  .btn-loader {
+    display: none;
+
+    animation: rotate linear 500ms infinite;
+  }
+
+  &[disabled],
+  &.disabled {
+    pointer-events: none;
+    opacity: var(--opacity-disabled);
+  }
+
+  &.loading {
+    position: relative;
+    // Disable button interaction when loading
+    pointer-events: none;
+
+    .btn-loader:only-of-type ~ .btn-text {
+      visibility: hidden;
+    }
+
+    .btn-loader {
+      display: block;
+    }
+
+    .btn-loader:only-of-type {
+      position: absolute;
+    }
+
+    .btn-icon {
+      display: none;
+    }
+  }
+
+  &.btn {
+    &_primary {
+      background-color: var(--color-primary-purple);
+      color: var(--color-secondary-white);
+
+      &:hover,
+      &.hover {
+        background-color: var(--color-primary-dark-purple);
+      }
+
+      &:focus,
+      &.focus {
+        background-color: var(--color-primary-dark-purple);
+        outline-color: var(--color-table-level-1);
+      }
+
+      &:active,
+      &.active {
+        background-color: var(--color-primary-pressed-purple);
+      }
+
+      &.loading {
+        background-color: var(--color-table-level-1);
+        color: var(--color-primary-dark-purple);
+      }
+    }
+
+    &_secondary {
+      border: 1px solid var(--color-primary-purple);
+      color: var(--color-primary-purple);
+
+      &:hover,
+      &.hover {
+        background-color: var(--color-background-purple);
+        color: var(--color-primary-dark-purple);
+      }
+
+      &:focus,
+      &.focus {
+        background-color: var(--color-secondary-background);
+        outline-color: var(--color-primary-light-purple);
+      }
+
+      &:active,
+      &.active {
+        background-color: var(--color-table-level-4);
+        color: var(--color-primary-dark-purple);
+      }
+
+      &.loading {
+        background-color: var(--color-secondary-white);
+      }
+    }
+
+    &_flat {
+      gap: pxToRem(4);
+      color: var(--color-primary-purple);
+
+      &:hover,
+      &.hover {
+        .btn-text {
+          text-decoration: underline;
+        }
+      }
+
+      &:hover,
+      &.hover,
+      &:focus,
+      &.focus {
+        color: var(--color-primary-dark-purple);
+      }
+
+      &:active,
+      &.active {
+        color: var(--color-primary-pressed-purple);
+      }
+
+      &.btn_size_s {
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+          .btn-text {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    &_destructive {
+      color: var(--color-secondary-white);
+      background-color: var(--color-stroke-red);
+
+      &:hover,
+      &.hover {
+        background-color: var(--color-status-red);
+      }
+    }
+
+    &_size {
+      &_s {
+        padding: pxToRem(6) pxToRem(16);
+
+        .btn-text {
+          @extend %typo_semibold, %typo_size_s;
+        }
+
+        .btn-icon,
+        .btn-loader {
+          width: pxToRem(20);
+          height: pxToRem(20);
+        }
+      }
+
+      &_l {
+        padding: pxToRem(9) pxToRem(16);
+
+        .btn-text {
+          @extend %typo_semibold, %typo_size_l;
+        }
+
+        .btn-icon,
+        .btn-loader {
+          width: pxToRem(24);
+          height: pxToRem(24);
+        }
+      }
+    }
+
+    &_only {
+      &.btn_size {
+        &_s {
+          padding: pxToRem(6);
+        }
+
+        &_l {
+          padding: pxToRem(8);
+        }
+      }
+    }
+
+    &_flat {
+      &.btn_size {
+        &_s {
+          padding: 0;
+        }
+
+        &_l {
+          padding: pxToRem(2);
+        }
+      }
+    }
+  }
+}

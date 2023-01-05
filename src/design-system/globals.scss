@@ -1,0 +1,8 @@
+// setup fonts
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+// This thing is quite dirty I think. For simplisity I used universal selector, however it's
+// also possible to set font-family for body and some tags which redefine font-family (like 'button')
+* {
+  font-family: "Inter", sans-serif;
+}

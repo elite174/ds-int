@@ -1,0 +1,34 @@
+@use './utils.scss' as *;
+
+:root {
+  --color-primary-dark-purple: #4747cc;
+  --color-primary-purple: #5c5ce5;
+  --color-primary-light-purple: #e8e8fc;
+  --color-primary-pressed-purple: #001f9a;
+
+  --color-table-level-4: #f2f2ff;
+  --color-table-level-1: #dbdbff;
+
+  --color-secondary-white: #ffffff;
+
+  --color-background-purple: #f7f7fc;
+  --color-gradient-purple: #5c5ce5;
+
+  --color-stroke-red: #f26d6d;
+  --color-status-red: #e54545;
+
+  // border radius
+  --border-radius-100: #{pxToRem(4)};
+
+  --opacity-disabled: 0.3;
+
+  --transition: 100ms ease-in-out;
+
+  // typography
+
+  --typography-s: #{pxToRem(14)};
+  --typography-s-lh: #{pxToRem(20)};
+  --typography-l: #{pxToRem(16)};
+  --typography-l-lh: #{pxToRem(22)};
+  --typography-semibold: 600;
+}

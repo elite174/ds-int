@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.table {
+  table-layout: fixed;
+
+  td {
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  caption {
+    font-size: larger;
+    font-weight: 500;
+  }
+}

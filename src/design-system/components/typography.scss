@@ -1,0 +1,38 @@
+@use '../utils.scss' as *;
+
+// I also supported typography component
+// Placeholder classes are necessary because we want to extend them in some components
+
+%typo_semibold {
+  font-weight: var(--typography-semibold);
+}
+
+%typo_size {
+  &_s {
+    font-size: var(--typography-s);
+    line-height: var(--typography-s-lh);
+  }
+
+  &_l {
+    font-size: var(--typography-l);
+    line-height: var(--typography-l-lh);
+  }
+}
+
+.int.typo {
+  &.typo {
+    &_size {
+      &_s {
+        @extend %typo_size_s;
+      }
+
+      &_l {
+        @extend %typo_size_l;
+      }
+    }
+
+    &_semibold {
+      @extend %typo_semibold;
+    }
+  }
+}
