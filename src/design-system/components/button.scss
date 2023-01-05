@@ -1,6 +1,11 @@
 @use "../utils.scss" as *;
 @use './typography.scss';
 
+// For the readability I used BEM in this case
+// However it makes classnames very long
+// It's possible to use more semantic approach like in SemanticUI and other CSS frameworks.
+// It's of course discussable.
+
 // This animation can be reused in the future
 // By now I decided to keep it here
 @keyframes rotate {
@@ -23,7 +28,7 @@
   box-sizing: border-box;
   cursor: pointer;
   transition: color var(--transition), background-color var(--transition),
-    outline var(--transition);
+    outline-color var(--transition);
   outline: 2px solid transparent;
   user-select: none;
 
@@ -50,7 +55,7 @@
 
   .btn-loader {
     display: none;
-
+    // I think this rotation should be applied for loader directly (not from button component)
     animation: rotate linear 500ms infinite;
   }
 
@@ -73,6 +78,8 @@
       display: block;
     }
 
+    // If there was only text
+    // we can move the loader to the button center
     .btn-loader:only-of-type {
       position: absolute;
     }

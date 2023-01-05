@@ -18,11 +18,14 @@
   --color-stroke-red: #f26d6d;
   --color-status-red: #e54545;
 
-  // border radius
+  // The following constants can be stored in scss variables.
+  // It's good to keep colors in CSS variables, because in case of dark theme
+  // it will be easy to replace colors.
+  // I guess the typography, transition, opacity and other stuff won't be changed
+  // so it's better to keep them in SCSS variable to reduce CSS runtime.
+
   --border-radius-100: #{pxToRem(4)};
-
   --opacity-disabled: 0.3;
-
   --transition: 100ms ease-in-out;
 
   // typography
